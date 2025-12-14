@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches: ['main', 'stable-3_5_0']
+name: run-tests
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pkp/pkp-ui-library-action@main
+        with:
+          node_version: 20

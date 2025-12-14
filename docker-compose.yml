@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: ojs_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./data/files:/var/www/files
+      - ojs_cache:/var/www/html/ojs/cache
+      - ojs_public:/var/www/html/ojs/public
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: ojs_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: ojs
+      MYSQL_USER: ojs
+      MYSQL_PASSWORD: ojs
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+  ojs_cache:
+  ojs_public:

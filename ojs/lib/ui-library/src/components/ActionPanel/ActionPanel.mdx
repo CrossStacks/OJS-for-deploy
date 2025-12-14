@@ -1,0 +1,47 @@
+import {
+	Primary,
+	Controls,
+	Stories,
+	Meta,
+	Description,
+} from '@storybook/addon-docs/blocks';
+
+import * as ActionPanelStories from './ActionPanel.stories.js';
+
+<Meta of={ActionPanelStories} />
+
+# Action Panel
+
+## Usage
+
+Use this component to pair an action, like a button or link, with a title and description. Often, the action will be a button or link with a truncated label. Consider the following example.
+
+```html
+<ActionPanel>
+	<h2>Delete Item</h2>
+	<p>
+		Delete the item and remove it from the user's list of pending items. This
+		action can not be undone.
+	</p>
+	<template #actions>
+		<PkpButton @click="delete">Delete</PkpButton>
+	</template>
+</ActionPanel>
+```
+
+Someone using assistive technology may use a shortcut to jump straight to the button and miss the description of the action. Use the `aria-describedby` attribute to make sure relate descriptions to action buttons or links.
+
+```html
+<ActionPanel>
+	<h2>Delete Item</h2>
+	<p id="delete-item-description">
+		Delete the item and remove it from the user's list of pending items. This
+		action can not be undone.
+	</p>
+	<template #actions>
+		<PkpButton aria-describedby="delete-item-description">Delete</PkpButton>
+	</template>
+</ActionPanel>
+```
+
+<Primary />

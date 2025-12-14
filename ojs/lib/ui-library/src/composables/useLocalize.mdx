@@ -1,0 +1,120 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+
+<Meta title="Composables/useLocalize" />
+
+# useLocalize
+
+## t - translation
+
+Get translation from the 'po' files, based on currently selected language. Using following syntax enable automatically detect used translation keys. If more dynamic use of translation keys is needed, checkout `tk` as alternative.
+
+```html
+<template>
+	<div>
+		<!-- use of translation directly in template -->
+		{{ t('common.ok') }}
+	</div>
+	<div>{{ paginationLabel }}</div>
+</template>
+
+<script setup>
+	import {computed} from 'vue';
+	import {useLocalize} from '@/composables/useLocalize';
+
+	const {t} = useLocalize();
+
+	   const start = ref(5);
+	   const end = ref(15);
+	   const total = ref(35);
+
+	   // more complex translation, dependant on state
+	const paginationLabel = computed(() => {
+		return t('common.pagination', {
+	           start: start.value,
+	           end: end.value
+	           total: total.value
+	       });
+	});
+</script>
+```
+
+## tk - translation keys
+
+When its useful to define translation keys without invoking the translation, there is `tk` helper function, which we can use to wrap the translation key. That ensures the translation key is detected by the vite plugin.
+
+Typical use would be when defining lots of translation based on different states and using `t` would require lots of switch&case statements.
+
+```
+const RecommendationTranslations = {
+    [pkp.const.SUBMISSION_REVIEWER_RECOMMENDATION_ACCEPT]: tk(
+        'reviewer.article.decision.accept',
+    ),
+    [pkp.const.SUBMISSION_REVIEWER_RECOMMENDATION_PENDING_REVISIONS]: tk(
+        'reviewer.article.decision.pendingRevisions',
+    ),
+    ...
+}
+
+const recommendation = computed(() => {
+    return RecommendationTranslations[props.reviewAssignment.recommendation]
+        ? t(RecommendationTranslations[props.reviewAssignment.recommendation])
+        : null;
+});
+
+```
+
+## localize
+
+Most metadata has support for multiple languages. Therefore if there is a need to display given metadata based on the currently selected locale, the `localize` function can be used.
+
+It will search for the current locale value. If there's no value for the current locale, it will revert to the primary locale. If there's still no match, it will return the first available value or an empty string.
+
+This method mimics the DataObject::getLocalizedData() method from the PHP backend.
+
+```html
+<template>
+	<span>{{ localize(publication.title)}}</span>
+</template>
+
+<script setup>
+	import {defineProps} from 'vue';
+	import {useLocalize} from '@/composables/useLocalize';
+
+	defineProps({
+		publication: {
+			type: Object,
+			required: true,
+		},
+	});
+
+	const {localize} = useLocalize();
+</script>
+```
+
+## localizeSubmission
+
+When working with submissions, a component should use the localizeSubmission mixin to localize submission data. This method will use the submission's primary language as the default value.
+
+```html
+<script setup>
+	import {defineProps, computed} from 'vue';
+	import {useLocalize} from '@/composables/useLocalize';
+
+	const props = defineProps({
+		submission: {
+			type: Object,
+			required: true,
+		},
+		publication: {
+			type: Object,
+			required: true,
+		},
+	});
+
+	const {localizeSubmission} = useLocalize();
+
+	const title = computed(() =>
+		localizeSubmission(props.publication.title, props.submission.locale),
+	);
+</script>
+```

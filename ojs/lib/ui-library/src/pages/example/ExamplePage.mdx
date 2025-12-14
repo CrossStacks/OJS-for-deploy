@@ -1,0 +1,42 @@
+import {
+	Primary,
+	Controls,
+	Stories,
+	Meta,
+	ArgTypes,
+} from '@storybook/addon-docs/blocks';
+
+import * as ExamplePageStories from './ExamplePage.stories.js';
+
+<Meta of={ExamplePageStories} />
+
+# Example page
+
+These principles applies for version 3.5 and higher, when building new pages or making significant changes to existing ones.
+
+## Folder structure
+
+```
+ui-library/src/pages/example
+  /** Main page files */
+  ExamplePage.vue
+  ExamplePage.store.js
+  ExamplePage.mdx
+  ExamplePage.stories.js
+
+  /** Page specific components to organise the page to smaller pieces */
+  ExampleCounter.vue
+  ExampleSubmissions.vue
+
+  /** Complex "sub page" that deserve own store, to be added later */
+  ExampleSummaryModal.vue
+  ExampleSummaryStore.js
+```
+
+## Server side configuration (expressed as Page props)
+
+<ArgTypes />
+
+## Api Mocking
+
+While working on new components or pages, its necessary to mock any API related communication. Storybook provides simple mechanism how to setup the mocks in the stories file.

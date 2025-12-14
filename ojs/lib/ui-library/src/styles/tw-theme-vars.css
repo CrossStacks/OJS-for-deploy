@@ -1,0 +1,216 @@
+:root {
+	--spacing: 0.25rem;
+
+	--color-primary: #006798;
+	--color-hover: #0082bf;
+	--color-attention: #d00a0a;
+	--color-success: #00b24e;
+	--color-negative: #d00a6c;
+	--color-stage-desk-review: #9b6ff8;
+	--color-stage-in-review: #e08914;
+	--color-stage-in-internal-review: #42427f;
+	--color-stage-copyediting: #f66aaf;
+	--color-stage-production: #4ac7e2;
+	--color-stage-scheduled-for-publishing: #ded15d;
+	--color-stage-incomplete-submission: #777777;
+	--color-stage-published: #00b24e;
+	--color-stage-declined: #d00a0a;
+	--color-profile-1: #ab7d94;
+	--color-profile-2: #598d70;
+	--color-profile-3: #9b7cdc;
+	--color-profile-4: #89aae0;
+	--color-profile-5: #ebda68;
+	--color-profile-6: #bd726c;
+	--color-transparent: transparent;
+
+	--background-color-default: #eaedee;
+	--background-color-secondary: #ffffff;
+	--background-color-tertiary: rgba(234, 237, 238, 0.3);
+	--background-color-blur: rgba(0, 0, 0, 0.5);
+	--background-color-selection-light: #d5e9f2;
+	--background-color-selection-dark: #002c40;
+	--background-color-disabled: rgba(28, 27, 31, 0.1);
+
+	--text-color-default: #222222;
+	--text-color-secondary: #505050;
+	--text-color-heading: #01354f;
+	--text-color-disabled: #4e4f4f;
+	--text-color-on-dark: #ffffff;
+
+	--border-color-dark: #696969;
+	--border-color-light: #bbbbbb;
+	--border-color-form-fields: #777777;
+	--border-color-transparent: transparent;
+
+	--radius: 4px;
+	--radius-full: 9999px;
+
+	--shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+	--font-sans:
+		'Noto Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+		'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+	/** 10px */
+	--text-xs-normal: 0.625rem;
+	--text-xs-normal--line-height: 0.75rem;
+	--text-xs-normal--font-weight: 400;
+
+	/** 11px */
+	--text-sm-light: 0.6875rem;
+	--text-sm-light--line-height: 0.875rem;
+	--text-sm-light--font-weight: 300;
+	--text-sm-normal: 0.6875rem;
+	--text-sm-normal--line-height: 0.875rem;
+	--text-sm-normal--font-weight: 400;
+
+	/** 12px */
+	--text-base-light: 0.75rem;
+	--text-base-light--line-height: 1rem;
+	--text-base-light--font-weight: 300;
+	--text-base-normal: 0.75rem;
+	--text-base-normal--line-height: 1rem;
+	--text-base-normal--font-weight: 400;
+	--text-base-bold: 0.75rem;
+	--text-base-bold--line-height: 1rem;
+	--text-base-bold--font-weight: 700;
+
+	/** 14px */
+	--text-lg-normal: 0.875rem;
+	--text-lg-normal--line-height: 1.25rem;
+	--text-lg-normal--font-weight: 400;
+	--text-lg-medium: 0.875rem;
+	--text-lg-medium--line-height: 1.25rem;
+	--text-lg-medium--font-weight: 500;
+	--text-lg-semibold: 0.875rem;
+	--text-lg-semibold--line-height: 1.25rem;
+	--text-lg-semibold--font-weight: 600;
+	--text-lg-bold: 0.875rem;
+	--text-lg-bold--line-height: 1.25rem;
+	--text-lg-bold--font-weight: 700;
+
+	/** 16px */
+	--text-xl-bold: 1rem;
+	--text-xl-bold--line-height: 1.5rem;
+	--text-xl-bold--font-weight: 700;
+
+	/** 18px */
+	--text-2xl-bold: 1.125rem;
+	--text-2xl-bold--line-height: 1.75rem;
+	--text-2xl-bold--font-weight: 700;
+
+	/** 20px */
+	--text-3xl-normal: 1.25rem;
+	--text-3xl-normal--line-height: 1.75rem;
+	--text-3xl-normal--font-weight: 400;
+	--text-3xl-medium: 1.25rem;
+	--text-3xl-medium--line-height: 1.75rem;
+	--text-3xl-medium--font-weight: 500;
+	--text-3xl-bold: 1.25rem;
+	--text-3xl-bold--line-height: 1.75rem;
+	--text-3xl-bold--font-weight: 700;
+
+	/** 24px */
+	--text-4xl-bold: 1.5rem;
+	--text-4xl-bold--line-height: 2rem;
+	--text-4xl-bold--font-weight: 700;
+
+	/** 36px */
+	--text-5xl-bold: 2.25rem;
+	--text-5xl-bold--line-height: 2.5rem;
+	--text-5xl-bold--font-weight: 700;
+
+	/* Additional css variables to make easier to use them in plugins*/
+	/* 10px */
+	--font-xs-normal: var(--text-xs-normal--font-weight) var(--text-xs-normal) /
+		var(--text-xs-normal--line-height) var(--font-sans);
+
+	/* 11px */
+	--font-sm-light: var(--text-sm-light--font-weight) var(--text-sm-light) /
+		var(--text-sm-light--line-height) var(--font-sans);
+	--font-sm-normal: var(--text-sm-normal--font-weight) var(--text-sm-normal) /
+		var(--text-sm-normal--line-height) var(--font-sans);
+
+	/* 12px */
+	--font-base-light: var(--text-base-light--font-weight)
+		var(--text-base-light) / var(--text-base-light--line-height)
+		var(--font-sans);
+	--font-base-normal: var(--text-base-normal--font-weight)
+		var(--text-base-normal) / var(--text-base-normal--line-height)
+		var(--font-sans);
+	--font-base-bold: var(--text-base-bold--font-weight) var(--text-base-bold) /
+		var(--text-base-bold--line-height) var(--font-sans);
+
+	/* 14px */
+	--font-lg-normal: var(--text-lg-normal--font-weight) var(--text-lg-normal) /
+		var(--text-lg-normal--line-height) var(--font-sans);
+	--font-lg-medium: var(--text-lg-medium--font-weight) var(--text-lg-medium) /
+		var(--text-lg-medium--line-height) var(--font-sans);
+	--font-lg-semibold: var(--text-lg-semibold--font-weight)
+		var(--text-lg-semibold) / var(--text-lg-semibold--line-height)
+		var(--font-sans);
+	--font-lg-bold: var(--text-lg-bold--font-weight) var(--text-lg-bold) /
+		var(--text-lg-bold--line-height) var(--font-sans);
+
+	/* 16px */
+	--font-xl-bold: var(--text-xl-bold--font-weight) var(--text-xl-bold) /
+		var(--text-xl-bold--line-height) var(--font-sans);
+
+	/* 18px */
+	--font-2xl-bold: var(--text-2xl-bold--font-weight) var(--text-2xl-bold) /
+		var(--text-2xl-bold--line-height) var(--font-sans);
+
+	/* 20px */
+	--font-3xl-normal: var(--text-3xl-normal--font-weight)
+		var(--text-3xl-normal) / var(--text-3xl-normal--line-height)
+		var(--font-sans);
+	--font-3xl-medium: var(--text-3xl-medium--font-weight)
+		var(--text-3xl-medium) / var(--text-3xl-medium--line-height)
+		var(--font-sans);
+	--font-3xl-bold: var(--text-3xl-bold--font-weight) var(--text-3xl-bold) /
+		var(--text-3xl-bold--line-height) var(--font-sans);
+
+	/* 24px */
+	--font-4xl-bold: var(--text-4xl-bold--font-weight) var(--text-4xl-bold) /
+		var(--text-4xl-bold--line-height) var(--font-sans);
+
+	/* 36px */
+	--font-5xl-bold: var(--text-5xl-bold--font-weight) var(--text-5xl-bold) /
+		var(--text-5xl-bold--line-height) var(--font-sans);
+
+	--spacing-0: 0px;
+	--spacing-px: 1px;
+	--spacing-0-5: 0.125rem; /* 2px */
+	--spacing-1: 0.25rem; /* 4px */
+	--spacing-1-5: 0.375rem; /* 6px */
+	--spacing-2: 0.5rem; /* 8px */
+	--spacing-2-5: 0.625rem; /* 10px */
+	--spacing-3: 0.75rem; /* 12px */
+	--spacing-3-5: 0.875rem; /* 14px */
+	--spacing-4: 1rem; /* 16px */
+	--spacing-5: 1.25rem; /* 20px */
+	--spacing-6: 1.5rem; /* 24px */
+	--spacing-7: 1.75rem; /* 28px */
+	--spacing-8: 2rem; /* 32px */
+	--spacing-9: 2.25rem; /* 36px */
+	--spacing-10: 2.5rem; /* 40px */
+	--spacing-11: 2.75rem; /* 44px */
+	--spacing-12: 3rem; /* 48px */
+	--spacing-14: 3.5rem; /* 56px */
+	--spacing-16: 4rem; /* 64px */
+	--spacing-20: 5rem; /* 80px */
+	--spacing-24: 6rem; /* 96px */
+	--spacing-28: 7rem; /* 112px */
+	--spacing-32: 8rem; /* 128px */
+	--spacing-36: 9rem; /* 144px */
+	--spacing-40: 10rem; /* 160px */
+	--spacing-44: 11rem; /* 176px */
+	--spacing-48: 12rem; /* 192px */
+	--spacing-52: 13rem; /* 208px */
+	--spacing-56: 14rem; /* 224px */
+	--spacing-60: 15rem; /* 240px */
+	--spacing-64: 16rem; /* 256px */
+	--spacing-72: 18rem; /* 288px */
+	--spacing-80: 20rem; /* 320px */
+	--spacing-96: 24rem; /* 384px */
+}

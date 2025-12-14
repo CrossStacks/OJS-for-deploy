@@ -1,0 +1,16 @@
+<journal-meta>
+  <journal-id journal-id-type="ojs">journal-path</journal-id>
+  <journal-title-group>
+    <journal-title xml:lang="en">journal-title</journal-title>
+    <trans-title-group xml:lang="gr">
+      <trans-title>journal-title</trans-title>
+    </trans-title-group>
+    <abbrev-journal-title xml:lang="en">publicknowledgeJ Pub Know</abbrev-journal-title>
+  </journal-title-group>
+  <publisher>
+    <publisher-name>journal-publisher</publisher-name>
+  </publisher>
+  <issn pub-type="epub">onlineIssn</issn>
+  <issn pub-type="ppub">printIssn</issn>
+  <self-uri xlink:href="journal-path--"/>
+</journal-meta>
