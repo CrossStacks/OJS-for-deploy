@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     curl \
+    nodejs \
+    npm \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-configure intl \
     && docker-php-ext-install \
@@ -52,6 +54,10 @@ RUN composer install --no-dev --prefer-dist
 
 WORKDIR /var/www/html/ojs/plugins/generic/citationStyleLanguage
 RUN composer install --no-dev --prefer-dist
+
+# Build frontend assets
+WORKDIR /var/www/html/ojs
+RUN npm install && npm run build
 
 # Permissions (VERY IMPORTANT FOR OJS)
 RUN chown -R www-data:www-data /var/www/html/ojs \
